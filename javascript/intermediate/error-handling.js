@@ -21,3 +21,11 @@ try {
 } catch (error) {
   console.log("2️⃣ ReferenceError caught:", error.name, "-", error.message);
 }
+
+// 3️⃣ Handling Type Errors
+try {
+  const num = 5;
+  num.toUpperCase(); // invalid operation
+} catch (error) {
+  console.log("\n3️⃣ TypeError caught:", error.name, "-", error.message);
+}
