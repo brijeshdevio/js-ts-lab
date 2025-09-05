@@ -14,3 +14,10 @@ try {
 } finally {
   console.log("Finally block always runs!\n");
 }
+
+// 2️⃣ Handling Reference Errors
+try {
+  console.log(undefinedVariable); // undefined variable
+} catch (error) {
+  console.log("2️⃣ ReferenceError caught:", error.name, "-", error.message);
+}
