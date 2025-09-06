@@ -43,3 +43,28 @@ try {
 } catch (error) {
   console.log("Caught Custom Error:", error.message);
 }
+
+// 5️⃣ Custom Error Class
+class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ValidationError";
+  }
+}
+
+function validateUser(user) {
+  if (!user.name) throw new ValidationError("Name is required!");
+  if (user.age < 18) throw new ValidationError("User must be 18 or older!");
+  console.log("User validation passed ✅");
+}
+
+try {
+  console.log("\n5️⃣ Custom Error Class Example:");
+  validateUser({ name: "John", age: 17 });
+} catch (error) {
+  if (error instanceof ValidationError) {
+    console.log("Validation Error:", error.message);
+  } else {
+    console.log("Unknown Error:", error);
+  }
+}
