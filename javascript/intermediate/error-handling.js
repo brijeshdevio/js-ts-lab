@@ -29,3 +29,17 @@ try {
 } catch (error) {
   console.log("\n3️⃣ TypeError caught:", error.name, "-", error.message);
 }
+
+// 4️⃣ Throwing custom errors
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero!");
+  }
+  return a / b;
+}
+
+try {
+  console.log("\n4️⃣ Divide Result:", divide(10, 0));
+} catch (error) {
+  console.log("Caught Custom Error:", error.message);
+}
