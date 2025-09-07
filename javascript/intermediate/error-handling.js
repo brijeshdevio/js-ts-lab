@@ -114,3 +114,15 @@ async function loadData() {
 }
 
 loadData();
+
+// 9️⃣ try...catch inside loops
+const items = [10, "x", 20, null, 30];
+console.log("9️⃣ try...catch inside loop:");
+items.forEach((item) => {
+  try {
+    if (typeof item !== "number") throw new Error(`Invalid item: ${item}`);
+    console.log("Processed:", item * 2);
+  } catch (err) {
+    console.log("Error caught:", err.message);
+  }
+});
