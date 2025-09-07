@@ -80,3 +80,21 @@ function safeJSONParse(jsonString) {
 }
 console.log("Parsed JSON:", safeJSONParse('{"name": "Alice"}'));
 console.log("Parsed JSON:", safeJSONParse("{invalid-json}"));
+
+// 7️⃣ Error handling with Promises
+function fakeFetch(success = true) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (success) resolve("✅ Data fetched successfully!");
+      else reject("❌ Network Error!");
+    }, 1000);
+  });
+}
+
+fakeFetch(true)
+  .then((msg) => console.log("\n7️⃣ Promise resolved:", msg))
+  .catch((err) => console.log("Promise rejected:", err));
+
+fakeFetch(false)
+  .then((msg) => console.log("Should not run"))
+  .catch((err) => console.log("Promise caught:", err));
