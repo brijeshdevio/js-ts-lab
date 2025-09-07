@@ -68,3 +68,15 @@ try {
     console.log("Unknown Error:", error);
   }
 }
+
+// 6️⃣ Using try...catch inside functions
+function safeJSONParse(jsonString) {
+  try {
+    return JSON.parse(jsonString);
+  } catch (error) {
+    console.log("\n6️⃣ Invalid JSON:", error.message);
+    return null;
+  }
+}
+console.log("Parsed JSON:", safeJSONParse('{"name": "Alice"}'));
+console.log("Parsed JSON:", safeJSONParse("{invalid-json}"));
