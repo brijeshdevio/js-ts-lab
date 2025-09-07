@@ -98,3 +98,19 @@ fakeFetch(true)
 fakeFetch(false)
   .then((msg) => console.log("Should not run"))
   .catch((err) => console.log("Promise caught:", err));
+
+// 8️⃣ Async/Await error handling
+async function loadData() {
+  try {
+    console.log("\n8️⃣ Async/Await Example:");
+    const data = await fakeFetch(true);
+    console.log("Data:", data);
+    await fakeFetch(false); // triggers error
+  } catch (err) {
+    console.error("Caught in async function:", err);
+  } finally {
+    console.log("Async function finished.\n");
+  }
+}
+
+loadData();
