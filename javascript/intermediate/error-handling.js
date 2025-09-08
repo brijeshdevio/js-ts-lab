@@ -126,3 +126,13 @@ items.forEach((item) => {
     console.log("Error caught:", err.message);
   }
 });
+
+// 🔟 Global Error Handling (Node.js)
+process.on("uncaughtException", (err) => {
+  console.log("\n🔟 Global Catch → Uncaught Exception:", err.message);
+});
+
+// Trigger global error after delay (to demonstrate)
+setTimeout(() => {
+  throw new Error("Unexpected crash simulated!");
+}, 2000);
