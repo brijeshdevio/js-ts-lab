@@ -11,3 +11,13 @@ function sayGoodbye() {
 }
 
 greet("Alice", sayGoodbye);
+
+// 2️⃣ Callback with Parameters
+function processData(data, callback) {
+  console.log("Processing data:", data);
+  callback(`✅ Result for ${data}`);
+}
+
+processData("User#101", (result) => {
+  console.log("Callback received:", result, "\n");
+});
