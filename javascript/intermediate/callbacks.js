@@ -34,3 +34,16 @@ function fetchDataFromServer(callback) {
 fetchDataFromServer((data) => {
   console.log("Data received:", data, "\n");
 });
+
+// 4️⃣ Callback Hell Example (nested callbacks)
+console.log("⛓️ Callback Hell Example:");
+
+setTimeout(() => {
+  console.log("Step 1: Fetch user");
+  setTimeout(() => {
+    console.log("Step 2: Fetch posts of user");
+    setTimeout(() => {
+      console.log("Step 3: Fetch comments of post\n");
+    }, 1000);
+  }, 1000);
+}, 1000);
