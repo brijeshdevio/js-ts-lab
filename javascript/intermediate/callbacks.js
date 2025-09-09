@@ -69,3 +69,17 @@ getUser(-5, (err, user) => {
   if (err) return console.error("Error:", err);
   console.log("User fetched:", user);
 });
+
+// 6️⃣ Reusable Higher-Order Callback
+function repeatTask(task, times, callback) {
+  for (let i = 0; i < times; i++) {
+    task(i);
+  }
+  callback();
+}
+
+repeatTask(
+  (i) => console.log(`Task iteration: ${i + 1}`),
+  3,
+  () => console.log("✅ All tasks done!\n")
+);
