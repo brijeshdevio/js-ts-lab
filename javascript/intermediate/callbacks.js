@@ -83,3 +83,31 @@ repeatTask(
   3,
   () => console.log("✅ All tasks done!\n")
 );
+
+// 8️⃣ Simulating Asynchronous Chain (callback version)
+function stepOne(callback) {
+  setTimeout(() => {
+    console.log("\nStep 1 complete");
+    callback();
+  }, 500);
+}
+
+function stepTwo(callback) {
+  setTimeout(() => {
+    console.log("Step 2 complete");
+    callback();
+  }, 500);
+}
+
+function stepThree(callback) {
+  setTimeout(() => {
+    console.log("Step 3 complete ✅");
+    callback();
+  }, 500);
+}
+
+stepOne(() => {
+  stepTwo(() => {
+    stepThree(() => console.log("All steps finished!\n"));
+  });
+});
