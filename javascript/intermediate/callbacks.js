@@ -47,3 +47,25 @@ setTimeout(() => {
     }, 1000);
   }, 1000);
 }, 1000);
+
+// 5️⃣ Handling Errors in Callbacks
+function getUser(id, callback) {
+  console.log("Fetching user:", id);
+  setTimeout(() => {
+    if (id <= 0) {
+      callback("❌ Invalid user ID!", null);
+    } else {
+      callback(null, { id, name: "Jane Doe" });
+    }
+  }, 1000);
+}
+
+getUser(1, (err, user) => {
+  if (err) return console.error("Error:", err);
+  console.log("User fetched:", user);
+});
+
+getUser(-5, (err, user) => {
+  if (err) return console.error("Error:", err);
+  console.log("User fetched:", user);
+});
