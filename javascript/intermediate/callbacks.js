@@ -111,3 +111,15 @@ stepOne(() => {
     stepThree(() => console.log("All steps finished!\n"));
   });
 });
+
+// 9️⃣ Converting Callbacks to Promises
+function getData(callback) {
+  setTimeout(() => {
+    callback(null, "📦 Data loaded via callback");
+  }, 1000);
+}
+
+getData((err, data) => {
+  if (err) console.error("Error:", err);
+  else console.log(data);
+});
