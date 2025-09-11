@@ -39,3 +39,13 @@ fetch("https://jsonplaceholder.typicode.com/posts/1", {
   .then((response) => response.json())
   .then((data) => console.log("\n3️⃣ PUT Response:", data))
   .catch((error) => console.error("PUT Error:", error.message));
+
+// 4️⃣ DELETE Request
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "DELETE",
+})
+  .then((response) => {
+    if (response.ok) console.log("\n4️⃣ DELETE successful!");
+    else throw new Error("Delete failed!");
+  })
+  .catch((error) => console.error("DELETE Error:", error.message));
