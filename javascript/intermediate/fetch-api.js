@@ -24,3 +24,18 @@ fetch("https://jsonplaceholder.typicode.com/posts", {
   .then((response) => response.json())
   .then((data) => console.log("\n2️⃣ POST Response:", data))
   .catch((error) => console.error("POST Error:", error.message));
+
+// 3️⃣ PUT Request (updating data)
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    id: 1,
+    title: "Updated Title",
+    body: "Updated Content",
+    userId: 1,
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log("\n3️⃣ PUT Response:", data))
+  .catch((error) => console.error("PUT Error:", error.message));
